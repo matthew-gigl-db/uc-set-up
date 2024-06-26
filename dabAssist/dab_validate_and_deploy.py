@@ -131,27 +131,18 @@ print(
 
 # COMMAND ----------
 
-print(
-  bundle.run(
-    key = "dlt_dropbox_bronze"
-    ,pipeline_flag = "--validate-only"
-  )
-)
+# print(
+#   bundle.run(
+#     key = "dlt_dropbox_bronze"
+#     ,pipeline_flag = "--validate-only"
+#   )
+# )
 
 # COMMAND ----------
 
 print(
   bundle.run(
-    key = "dlt_dropbox_silver"
-    ,pipeline_flag = "--validate-only"
-  )
-)
-
-# COMMAND ----------
-
-print(
-  bundle.run(
-    key = "dlt_dropbox_job"
+    key = "unity_catalog_setup_job"
   )
 )
 
