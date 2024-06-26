@@ -17,7 +17,7 @@ resources:
         - task_key: notebook_task
           job_cluster_key: single_node_job_cluster
           notebook_task:
-            notebook_path: ../src/create-catalogs.py
+            notebook_path: ../src/create-catalog.py
         
       job_clusters:
         - job_cluster_key: single_node_job_cluster
