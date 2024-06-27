@@ -1,0 +1,44 @@
+{"catalog": {
+  "hcsc_dev": {
+    "name": "hcsc_dev"
+    ,"target": "dev"
+    ,"permissions": [
+      {"grant": "USE CATALOG", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "USE SCHEMA", "principals": []}
+      ,{"grant": "APPLY TAG", "principals": []}
+      ,{"grant": "BROWSE", "principals": []}
+      ,{"grant": "EXECUTE", "principals": []}
+      ,{"grant": "MODIFY", "principals": []}
+      ,{"grant": "READ VOLUME", "principals": []}
+      ,{"grant": "REFRESH", "principals": []}
+      ,{"grant": "SELECT", "principals": []}
+      ,{"grant": "WRITE VOLUME", "principals": []}
+      ,{"grant": "CREATE FUNCTION", "principals": []}
+      ,{"grant": "CREATE MATERIALIZED VIEW", "principals": []}
+      ,{"grant": "CREATE MODEL", "principals": []}
+      ,{"grant": "CREATE SCHEMA", "principals": []}
+      ,{"grant": "CREATE VOLUME", "principals": []}
+    ]
+  }
+  ,"hcsc_tst": {
+    "name": "hcsc_tst"
+    ,"target": "tst"
+    ,"permissions": [
+      {"grant": "USE CATALOG", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "USE SCHEMA", "principals": []}
+      ,{"grant": "APPLY TAG", "principals": []}
+      ,{"grant": "BROWSE", "principals": []}
+      ,{"grant": "EXECUTE", "principals": []}
+      ,{"grant": "MODIFY", "principals": []}
+      ,{"grant": "READ VOLUME", "principals": []}
+      ,{"grant": "REFRESH", "principals": []}
+      ,{"grant": "SELECT", "principals": []}
+      ,{"grant": "WRITE VOLUME", "principals": []}
+      ,{"grant": "CREATE FUNCTION", "principals": []}
+      ,{"grant": "CREATE MATERIALIZED VIEW", "principals": []}
+      ,{"grant": "CREATE MODEL", "principals": []}
+      ,{"grant": "CREATE SCHEMA", "principals": []}
+      ,{"grant": "CREATE VOLUME", "principals": []}
+    ]
+  }
+}}

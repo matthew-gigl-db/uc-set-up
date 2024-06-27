@@ -14,16 +14,48 @@ resources:
           - matthew.giglia@databricks.com
 
       tasks:
-        - task_key: notebook_task
-          job_cluster_key: job_cluster
+        - task_key: create_catalogs
+          # job_cluster_key: job_cluster #comment out for serverless
           notebook_task:
-            notebook_path: ../src/notebook.ipynb
+            notebook_path: ../src/create-catalogs.py
         
       job_clusters:
         - job_cluster_key: job_cluster
           new_cluster:
-            spark_version: 13.3.x-scala2.12
+            spark_version: 15.3.x-scala2.12
             node_type_id: i3.xlarge
             autoscale:
                 min_workers: 1
                 max_workers: 4
+
+      queue:
+        enabled: true
+
+      parameters:
+        - name: bundle.workspace.file_path
+          default: /Workspace${workspace.file_path}
+        - name: bundle.target
+          default: ${bundle.target}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
