@@ -79,7 +79,7 @@ class assetBundle:
       return result.stdout.decode("utf-8") + "\n" + result.stderr.decode("utf-8")
 
     def validate(self):
-      cmd = f"""cd {self.bundle_path}; pwd; git pull; {self.cli_path} bundle validate"""
+      cmd = f"""cd {self.bundle_path}; pwd; git pull; {self.cli_path} bundle validate -t {self.target}"""
       result = subprocess.run(cmd, shell=True, capture_output=True)
       return result.stdout.decode("utf-8") + "\n" + result.stderr.decode("utf-8")
 

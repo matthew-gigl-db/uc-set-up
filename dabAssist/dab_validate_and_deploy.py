@@ -91,7 +91,7 @@ bundle = dabAssist.assetBundle(
   ,repo_url = repo_url
   ,project = project
   ,cli_path = dc.cli_path
-  ,target = "dev"
+  ,target = "tst"
 )
 
 # COMMAND ----------
