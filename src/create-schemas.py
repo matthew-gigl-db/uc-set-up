@@ -97,9 +97,41 @@ for i in schemas_list:
 
 # COMMAND ----------
 
+from pyspark.sql.types import StringType, StructType, StructField
+
+# Define the schema for the empty DataFrame
+schema = StructType([
+    StructField("Column1", StringType(), nullable=True),
+    StructField("Column2", StringType(), nullable=True),
+    StructField("Column3", StringType(), nullable=True)
+])
+
+# Create an empty DataFrame with the desired schema
+empty_df = spark.createDataFrame([], schema)
+
+# Use the empty_df DataFrame as needed
+display(empty_df)
+
+# COMMAND ----------
+
+from pyspark.sql.types import StringType, StructType, StructField
+
+# Define the schema for the empty DataFrame
+schema = StructType([
+    StructField("Principal", StringType(), nullable=True),
+    StructField("ActionType", StringType(), nullable=True),
+    StructField("ObjectType", StringType(), nullable=True),
+    StructField("ObjectKey", StringType(), nullable=True),
+])
+
+# Create an empty DataFrame with the desired schema
+appended_df = spark.createDataFrame([], schema)  
+
 for i in distinct_schemas_list:
   catalog = i['catalog']
   schema = i['name']
-  display(
-    spark.sql(f"SHOW GRANTS ON CATALOG {catalog}.{schema};")
-  )
+  grants = spark.sql(f"SHOW GRANTS ON SCHEMA {catalog}.{schema};")
+  # Append the grants DataFrame to the empty DataFrame
+  appended_df = appended_df.union(grants)  
+
+display(appended_df)
