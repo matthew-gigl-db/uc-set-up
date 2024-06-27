@@ -91,7 +91,7 @@ for i in schemas_list:
   schema = i['name']
   grant = i['permissions']['grant']
   for principal in i['permissions']['principals']:
-    sql_str = f"GRANT {grant} ON {catalog}.{schema} TO `{principal}`;"
+    sql_str = f"GRANT {grant} ON SCHEMA {catalog}.{schema} TO `{principal}`;"
     print(sql_str)
     spark.sql(sql_str)
 
