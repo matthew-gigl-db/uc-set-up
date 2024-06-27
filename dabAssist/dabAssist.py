@@ -85,7 +85,7 @@ class assetBundle:
 
     def deploy(self, force: bool = False):
       if force:
-        cmd = f"cd {self.bundle_path}; pwd; {self.cli_path} bundle deploy -t {self.target}"
+        cmd = f"cd {self.bundle_path}; pwd; {self.cli_path} bundle deploy -t {self.target} --force"
       else:
         cmd = f"cd {self.bundle_path}; pwd; {self.cli_path} bundle deploy -t {self.target}"
       result = subprocess.run(cmd, shell=True, capture_output=True)
