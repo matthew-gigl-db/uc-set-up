@@ -37,10 +37,10 @@ targets:
       # This runs as matthew.giglia@databricks.com in production. We could also use a service principal here,
       # see https://docs.databricks.com/dev-tools/bundles/permissions.html.
       user_name: matthew.giglia@databricks.com
-    # bundle: # Required.
-    #   git:
-    #     origin_url: https://github.com/matthew-gigl-db/unity-catalog-setup.git
-    #     branch: system
+    bundle: # Required.
+      git:
+        origin_url: https://github.com/matthew-gigl-db/unity-catalog-setup.git
+        branch: system
 
   # The 'prod' target, used for production deployment.
   prod:
