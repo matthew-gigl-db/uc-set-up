@@ -15,7 +15,7 @@ resources:
 
       tasks:
         - task_key: create_catalogs
-          job_cluster_key: single_node_job_cluster
+          job_cluster_key: auto_scaling_job_cluster
           notebook_task:
             notebook_path: ../src/create-catalogs.py
         
