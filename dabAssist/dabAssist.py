@@ -83,8 +83,11 @@ class assetBundle:
       result = subprocess.run(cmd, shell=True, capture_output=True)
       return result.stdout.decode("utf-8") + "\n" + result.stderr.decode("utf-8")
 
-    def deploy(self):
-      cmd = f"cd {self.bundle_path}; pwd; {self.cli_path} bundle deploy -t {self.target}"
+    def deploy(self, force: bool = False):
+      if force:
+        cmd = f"cd {self.bundle_path}; pwd; {self.cli_path} bundle deploy -t {self.target}"
+      else:
+        cmd = f"cd {self.bundle_path}; pwd; {self.cli_path} bundle deploy -t {self.target}"
       result = subprocess.run(cmd, shell=True, capture_output=True)
       return result.stdout.decode("utf-8") + "\n" + result.stderr.decode("utf-8")
 
