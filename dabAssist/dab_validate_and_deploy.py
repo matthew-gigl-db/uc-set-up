@@ -126,6 +126,15 @@ print(
 
 # COMMAND ----------
 
+print(
+  bundle.run(
+    key = "unity_catalog_setup_job"
+  )
+)
+
+
+# COMMAND ----------
+
 # cmd = f"{dc.cli_path} bundle run -h"
 # !{cmd}
 
@@ -137,15 +146,6 @@ print(
 #     ,pipeline_flag = "--validate-only"
 #   )
 # )
-
-# COMMAND ----------
-
-print(
-  bundle.run(
-    key = "unity_catalog_setup_job"
-  )
-)
-
 
 # COMMAND ----------
 

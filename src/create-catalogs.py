@@ -39,6 +39,8 @@ catalogs_sdf = (
   .select("name", "permissions")
 )
 
+# COMMAND ----------
+
 display(catalogs_sdf)
 
 # COMMAND ----------
