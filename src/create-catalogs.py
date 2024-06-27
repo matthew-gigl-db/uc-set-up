@@ -1,20 +1,21 @@
 # Databricks notebook source
 # DBTITLE 1,Bundle Widget Configuration
-dbutils.widgets.text("bundle.sourcePath", "", "")
-dbutils.widgets.text("bundle.fixturePath", "", "")
+dbutils.widgets.text("bundle.workspace.file_path", "", "")
 dbutils.widgets.text("bundle.target", "dev", "")
 
 # COMMAND ----------
 
 # DBTITLE 1,Widget Variable Initialization for Bundle
-sourcePath = dbutils.widgets.get("bundle.sourcePath")
-fixturePath = dbutils.widgets.get("bundle.fixturePath")
+workspace_file_path = dbutils.widgets.get("bundle.workspace.file_path")
+sourcePath = workspace_file_path + "/src"
+fixturePath = workspace_file_path + "/fixtures"
 target_env = dbutils.widgets.get("bundle.target")
 
 # COMMAND ----------
 
 # DBTITLE 1,Formatted Path and Environment Variables
 print(f"""
+   workspace_file_path = {workspace_file_path}
    sourcePath = {sourcePath}
    fixturePath = {fixturePath}   
    target_env = {target_env}

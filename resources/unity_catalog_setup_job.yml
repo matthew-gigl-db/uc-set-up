@@ -15,7 +15,7 @@ resources:
 
       tasks:
         - task_key: create_catalogs
-          job_cluster_key: job_cluster
+          # job_cluster_key: job_cluster #comment out for serverless
           notebook_task:
             notebook_path: ../src/create-catalogs.py
         
@@ -32,10 +32,8 @@ resources:
         enabled: true
 
       parameters:
-        - name: bundle.sourcePath
-          default: /Workspace${workspace.file_path}/src
-        - name: bundle.fixturePath
-          default: /Workspace${workspace.file_path}/fixtures
+        - name: bundle.workspace.file_path
+          default: /Workspace${workspace.file_path}
         - name: bundle.target
           default: ${bundle.target}
 
