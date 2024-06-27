@@ -121,7 +121,7 @@ print(
 # COMMAND ----------
 
 print(
-  bundle.deploy()
+  bundle.deploy(force = True)
 )
 
 # COMMAND ----------
