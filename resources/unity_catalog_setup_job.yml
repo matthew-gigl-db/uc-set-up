@@ -15,19 +15,12 @@ resources:
 
       tasks:
         - task_key: create_catalogs
-          job_cluster_key: auto_scaling_job_cluster
+          job_cluster_key: job_cluster
           notebook_task:
             notebook_path: ../src/create-catalogs.py
         
       job_clusters:
-        - job_cluster_key: single_node_job_cluster
-          new_cluster:
-            spark_version: 15.3.x-scala2.12
-            node_type_id: i3.xlarge
-            autoscale:
-                min_workers: 0
-                max_workers: 0
-        - job_cluster_key: auto_scaling_job_cluster
+        - job_cluster_key: job_cluster
           new_cluster:
             spark_version: 15.3.x-scala2.12
             node_type_id: i3.xlarge
