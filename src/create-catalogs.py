@@ -78,3 +78,15 @@ for i in catalogs_list:
   for principal in i["permissions"]["principals"]:
     print(f"GRANT {grant} ON CATALOG {catalog} TO `{principal}`;")
     spark.sql(f"GRANT {grant} ON CATALOG {catalog} TO `{principal}`;")
+
+# COMMAND ----------
+
+# DBTITLE 1,Display Grants for Distinct Catalogs
+for catalog in distinct_catalogs:
+  display(
+    spark.sql(f"SHOW GRANTS ON CATALOG {catalog};")
+  )
+
+# COMMAND ----------
+
+
