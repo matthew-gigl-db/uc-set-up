@@ -91,7 +91,7 @@ bundle = dabAssist.assetBundle(
   ,repo_url = repo_url
   ,project = project
   ,cli_path = dc.cli_path
-  ,target = "dev"
+  ,target = "tst"
 )
 
 # COMMAND ----------
@@ -121,7 +121,7 @@ print(
 # COMMAND ----------
 
 print(
-  bundle.deploy()
+  bundle.deploy(force = True)
 )
 
 # COMMAND ----------
@@ -131,7 +131,6 @@ print(
     key = "unity_catalog_setup_job"
   )
 )
-
 
 # COMMAND ----------
 
