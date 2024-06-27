@@ -69,7 +69,7 @@ for i in distinct_schemas_list:
   comment = i['comment']
   properties = i['properties']
   external_location = i['external_location']
-  sql_str = f"USE CATALOG {i['catalog']}; CREATE SCHEMA IF NOT EXISTS {i['name']}"
+  sql_str = f"CREATE SCHEMA IF NOT EXISTS {catalog}.{schema}"
   if external_location != "":
     sql_str += f" MANAGED LOCATION '{external_location}'"
   if properties != "":
