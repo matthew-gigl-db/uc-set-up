@@ -43,7 +43,7 @@ resources:
           default: /Workspace${workspace.file_path}/src
         - name: bundle.fixturePath
           default: /Workspace${workspace.file_path}/fixtures
-        - target: bundle.target
+        - name: bundle.target
           default: ${bundle.target}
 
 
