@@ -87,7 +87,3 @@ for catalog in distinct_catalogs:
   display(
     spark.sql(f"SHOW GRANTS ON CATALOG {catalog};")
   )
-
-# COMMAND ----------
-
-
