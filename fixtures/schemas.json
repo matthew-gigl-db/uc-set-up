@@ -21,7 +21,7 @@
     ]
     ,"comment": "Care Management Mart"
     ,"external_location": ""
-    ,"properties": ""
+    ,"properties": "(phi = true, pii = true, pci = false)"
   }
   ,"care_management_tst": {
     "name": "care_management"
@@ -45,6 +45,6 @@
     ]
     ,"comment": "Care Management Mart"
     ,"external_location": ""
-    ,"properties": ""
+    ,"properties": "(phi = true, pii = true, pci = false)"
   }
 }}

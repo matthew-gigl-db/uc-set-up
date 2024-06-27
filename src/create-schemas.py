@@ -45,9 +45,12 @@ schemas_sdf = (
   .withColumn("name", col("schema.name"))
   .withColumn("target", col("schema.target"))
   .withColumn("catalog", col("schema.catalog"))
+  .withColumn("comment", col("schema.comment"))
+  .withColumn("properties", col("schema.properties"))
+  .withColumn("external_location", col("schema.external_location"))
   .withColumn("permissions", explode(col("schema.permissions")))
   .filter(col("target") == target_env)
-  .select("catalog", "name", "permissions")
+  .select("catalog", "name", "comment", "properties", "external_location", "permissions")
 )
 
 # COMMAND ----------
@@ -56,18 +59,30 @@ display(schemas_sdf)
 
 # COMMAND ----------
 
-distinct_schemas_list = schemas_sdf.select("catalog", "name").distinct().collect()
+distinct_schemas_list = schemas_sdf.select("catalog", "name", "comment", "properties", "external_location").distinct().collect()
 
 # COMMAND ----------
 
 for i in distinct_schemas_list:
-  sql = f"USE CATALOG {i['catalog']}; CREATE SCHEMA IF NOT EXISTS {i['name']};"
-  print(sql)
-  # spark.sql(f"CREATE CATALOG IF NOT EXISTS {catalog};")
+  catalog = i['catalog']
+  schema = i['name']
+  comment = i['comment']
+  properties = i['properties']
+  external_location = i['external_location']
+  sql_str = f"USE CATALOG {i['catalog']}; CREATE SCHEMA IF NOT EXISTS {i['name']}"
+  if external_location != "":
+    sql_str += f" MANAGED LOCATION '{external_location}'"
+  if properties != "":
+    sql_str += f" WITH DBPROPERTIES {properties}"
+  if comment != "":
+    sql_str += f" COMMENT '{comment}'"
+  sql_str += f";"
+  print(sql_str)
+  spark.sql(sql_str)
 
 # COMMAND ----------
 
-schemas_list = schemas_sdf.collect()
+schemas_list = schemas_sdf.select("catalog", "name", "permissions").collect()
 
 # COMMAND ----------
 
@@ -76,5 +91,15 @@ for i in schemas_list:
   schema = i['name']
   grant = i['permissions']['grant']
   for principal in i['permissions']['principals']:
-    sql = f"USE CATALOG {catalog}; USE SCHEMA {schema}; GRANT {grant} ON {schema} TO `{principal}`;"
-    print(sql)
+    sql_str = f"USE CATALOG {catalog}; USE SCHEMA {schema}; GRANT {grant} ON {schema} TO `{principal}`;"
+    print(sql_str)
+    spark.sql(sql_str)
+
+# COMMAND ----------
+
+for i in distinct_schemas_list:
+  catalog = i['catalog']
+  schema = i['name']
+  display(
+    spark.sql(f"SHOW GRANTS ON CATALOG {catalog}.{schema};")
+  )
