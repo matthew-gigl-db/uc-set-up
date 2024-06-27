@@ -1,7 +1,6 @@
 # Databricks notebook source
 dbutils.widgets.text("sourcePath", "", "")
-dbutils.widgets.text("catalog", "", "")
-dbutils.widgets.text("target", "dev", "")
+dbutils.widgets.text("fixturePath", "", "")
 
 # COMMAND ----------
 

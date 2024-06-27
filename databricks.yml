@@ -39,3 +39,21 @@ targets:
       # This runs as matthew.giglia@databricks.com in production. We could also use a service principal here,
       # see https://docs.databricks.com/dev-tools/bundles/permissions.html.
       user_name: matthew.giglia@databricks.com
+    bundle: # Required.
+      git:
+        origin_url: https://github.com/matthew-gigl-db/unity-catalog-setup.git
+        branch: publish
+
+variables:
+  secrets_scope:
+    description: The Databricks Secrets Scope used for storing credentials. 
+    default: matthew-giglia
+  databricks_pat_key:
+    description: The key used in Databricks Secrets to retrieve the Databricks Personal Access token with the previously defined secrets_scope.  
+    default: databricks_pat
+
+
+
+
+
+
