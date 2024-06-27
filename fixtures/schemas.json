@@ -1,0 +1,44 @@
+{"schema": {
+  "care_management_dev": {
+    "name": "care_management"
+    ,"target": "dev"
+    ,"catalog": "hcsc_dev"
+    ,"permissions": [
+      {"grant": "USE SCHEMA", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "APPLY TAG", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "BROWSE", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "EXECUTE", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "MODIFY", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "READ VOLUME", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "REFRESH", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "SELECT", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "WRITE VOLUME", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "CREATE FUNCTION", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "CREATE MATERIALIZED VIEW", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "CREATE MODEL", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "CREATE TABLE", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "CREATE VOLUME", "principals": ["admins"]}
+    ]
+  }
+  ,"care_management_tst": {
+    "name": "care_management"
+    ,"target": "tst"
+    ,"catalog": "hcsc_tst"
+    ,"permissions": [
+      {"grant": "USE SCHEMA", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "APPLY TAG", "principals": ["admins"]}
+      ,{"grant": "BROWSE", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "EXECUTE", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "MODIFY", "principals": ["admins"]}
+      ,{"grant": "READ VOLUME", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "REFRESH", "principals": ["admins"]}
+      ,{"grant": "SELECT", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "WRITE VOLUME", "principals": ["admins"]}
+      ,{"grant": "CREATE FUNCTION", "principals": ["admins"]}
+      ,{"grant": "CREATE MATERIALIZED VIEW", "principals": ["admins"]}
+      ,{"grant": "CREATE MODEL", "principals": ["admins"]}
+      ,{"grant": "CREATE TABLE", "principals": ["admins"]}
+      ,{"grant": "CREATE VOLUME", "principals": ["admins"]}
+    ]
+  }
+}}
