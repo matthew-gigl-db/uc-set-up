@@ -39,10 +39,12 @@ resources:
         enabled: true
 
       parameters:
-        - name: sourcePath
+        - name: bundle.sourcePath
           default: /Workspace${workspace.file_path}/src
-        - name: fixturePath
+        - name: bundle.fixturePath
           default: /Workspace${workspace.file_path}/fixtures
+        - target: bundle.target
+          default: ${bundle.target}
 
 
 

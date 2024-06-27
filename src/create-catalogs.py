@@ -1,23 +1,30 @@
 # Databricks notebook source
-dbutils.widgets.text("sourcePath", "", "")
-dbutils.widgets.text("fixturePath", "", "")
+# dbutils.widgets.removeAll()
 
 # COMMAND ----------
 
-sourcePath = dbutils.widgets.get("sourcePath")
-fixturePath = dbutils.widgets.get("fixturePath")
+dbutils.widgets.text("bundle.sourcePath", "", "")
+dbutils.widgets.text("bundle.fixturePath", "", "")
+dbutils.widgets.text("bundle.target", "dev", "")
+
+# COMMAND ----------
+
+sourcePath = dbutils.widgets.get("bundle.sourcePath")
+fixturePath = dbutils.widgets.get("bundle.fixturePath")
+target_env = dbutils.widgets.get("bundle.target")
 
 # COMMAND ----------
 
 print(f"""
    sourcePath = {sourcePath}
-   fixturePath = {fixturePath}    
+   fixturePath = {fixturePath}   
+   target_env = {target_env}
 """)
 
 # COMMAND ----------
 
 import sys, os
-sys.path.append(os.path.abspath(dbutils.widgets.get("sourcePath")))
+sys.path.append(os.path.abspath(sourcePath))
 
 import ucSetUp
 import pandas as pd
@@ -35,7 +42,9 @@ from pyspark.sql.functions import explode, col
 catalogs_sdf = (
   sdf
   .withColumn("name", col("catalog.name"))
+  .withColumn("target", col("catalog.target"))
   .withColumn("permissions", explode(col("catalog.permissions")))
+  .filter(col("target") == target_env)
   .select("name", "permissions")
 )
 

@@ -1,6 +1,7 @@
 {"catalog": {
   "hcsc_dev": {
     "name": "hcsc_dev"
+    ,"target": "dev"
     ,"permissions": [
       {"grant": "USE CATALOG", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
       ,{"grant": "USE SCHEMA", "principals": []}
@@ -21,6 +22,7 @@
   }
   ,"hcsc_tst": {
     "name": "hcsc_tst"
+    ,"target": "tst"
     ,"permissions": [
       {"grant": "USE CATALOG", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
       ,{"grant": "USE SCHEMA", "principals": []}
