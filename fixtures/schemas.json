@@ -19,6 +19,9 @@
       ,{"grant": "CREATE TABLE", "principals": ["hcsc_data_engineers"]}
       ,{"grant": "CREATE VOLUME", "principals": ["admins"]}
     ]
+    ,"comment": "Care Management Mart"
+    ,"external_location": ""
+    ,"properties": ""
   }
   ,"care_management_tst": {
     "name": "care_management"
@@ -40,5 +43,8 @@
       ,{"grant": "CREATE TABLE", "principals": ["admins"]}
       ,{"grant": "CREATE VOLUME", "principals": ["admins"]}
     ]
+    ,"comment": "Care Management Mart"
+    ,"external_location": ""
+    ,"properties": ""
   }
 }}
