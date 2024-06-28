@@ -95,8 +95,7 @@ schema = StructType([
 # Create an empty DataFrame with the desired schema
 appended_df = spark.createDataFrame([], schema)  
 
-for i in distinct_catalogs:
-  catalog = i['catalog']
+for catalog in distinct_catalogs:
   grants = spark.sql(f"SHOW GRANTS ON CATALOG {catalog};")
   # Append the grants DataFrame to the empty DataFrame
   appended_df = appended_df.union(grants)  

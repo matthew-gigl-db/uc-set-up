@@ -1,0 +1,94 @@
+{"volume": {
+  "care_management_dev_landing": {
+    "name": "landing"
+    ,"target": "dev"
+    ,"catalog": "hcsc_dev"
+    ,"schema": "care_management"
+    ,"permissions": [
+      {"grant": "USE SCHEMA", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "APPLY TAG", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "EXECUTE", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "MODIFY", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "READ VOLUME", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "REFRESH", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "SELECT", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "WRITE VOLUME", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "CREATE FUNCTION", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "CREATE MATERIALIZED VIEW", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "CREATE MODEL", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "CREATE TABLE", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "CREATE VOLUME", "principals": ["hcsc_admins"]}
+    ]
+    ,"comment": "Care Management Mart"
+    ,"external_location": ""
+  }
+  ,"care_management_tst": {
+    "name": "care_management"
+    ,"target": "tst"
+    ,"catalog": "hcsc_tst"
+    ,"permissions": [
+      {"grant": "USE SCHEMA", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "APPLY TAG", "principals": ["hcsc_admins"]}
+      ,{"grant": "EXECUTE", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "MODIFY", "principals": ["hcsc_admins"]}
+      ,{"grant": "READ VOLUME", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "REFRESH", "principals": ["hcsc_admins"]}
+      ,{"grant": "SELECT", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "WRITE VOLUME", "principals": ["hcsc_admins"]}
+      ,{"grant": "CREATE FUNCTION", "principals": ["hcsc_admins"]}
+      ,{"grant": "CREATE MATERIALIZED VIEW", "principals": ["hcsc_admins"]}
+      ,{"grant": "CREATE MODEL", "principals": ["hcsc_admins"]}
+      ,{"grant": "CREATE TABLE", "principals": ["hcsc_admins"]}
+      ,{"grant": "CREATE VOLUME", "principals": ["hcsc_admins"]}
+    ]
+    ,"comment": "Care Management Mart"
+    ,"external_location": ""
+    ,"properties": "(phi = true, pii = true, pci = false)"
+  }
+  ,"finance_dev": {
+    "name": "finance"
+    ,"target": "dev"
+    ,"catalog": "hcsc_dev"
+    ,"permissions": [
+      {"grant": "USE SCHEMA", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "APPLY TAG", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "EXECUTE", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "MODIFY", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "READ VOLUME", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "REFRESH", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "SELECT", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "WRITE VOLUME", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "CREATE FUNCTION", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "CREATE MATERIALIZED VIEW", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "CREATE MODEL", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "CREATE TABLE", "principals": ["hcsc_data_engineers"]}
+      ,{"grant": "CREATE VOLUME", "principals": ["hcsc_admins"]}
+    ]
+    ,"comment": "Finance Mart"
+    ,"external_location": ""
+    ,"properties": "(phi = true, pii = true, pci = true)"
+  }
+  ,"finance_tst": {
+    "name": "finance"
+    ,"target": "tst"
+    ,"catalog": "hcsc_tst"
+    ,"permissions": [
+      {"grant": "USE SCHEMA", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "APPLY TAG", "principals": ["hcsc_admins"]}
+      ,{"grant": "EXECUTE", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "MODIFY", "principals": ["hcsc_admins"]}
+      ,{"grant": "READ VOLUME", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "REFRESH", "principals": ["hcsc_admins"]}
+      ,{"grant": "SELECT", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "WRITE VOLUME", "principals": ["hcsc_admins"]}
+      ,{"grant": "CREATE FUNCTION", "principals": ["hcsc_admins"]}
+      ,{"grant": "CREATE MATERIALIZED VIEW", "principals": ["hcsc_admins"]}
+      ,{"grant": "CREATE MODEL", "principals": ["hcsc_admins"]}
+      ,{"grant": "CREATE TABLE", "principals": ["hcsc_admins"]}
+      ,{"grant": "CREATE VOLUME", "principals": ["hcsc_admins"]}
+    ]
+    ,"comment": "Finance Mart"
+    ,"external_location": ""
+    ,"properties": "(phi = true, pii = true, pci = true)"
+  }
+}}
