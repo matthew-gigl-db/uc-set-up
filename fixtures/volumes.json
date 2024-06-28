@@ -1,0 +1,106 @@
+{"volume": {
+  "care_management_dev_landing": {
+    "name": "landing"
+    ,"target": "dev"
+    ,"catalog": "hcsc_dev"
+    ,"schema": "care_management"
+    ,"permissions": [
+      {"grant": "APPLY TAG", "principals": ["hcsc_admins"]}
+      ,{"grant": "READ VOLUME", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "WRITE VOLUME", "principals": ["hcsc_data_engineers"]}
+    ]
+    ,"comment": "Landing directory for incoming Care Managment Mart Files"
+    ,"external_location": ""
+  }
+  ,"care_management_dev_extract": {
+    "name": "extract"
+    ,"target": "dev"
+    ,"catalog": "hcsc_dev"
+    ,"schema": "care_management"
+    ,"permissions": [
+      {"grant": "APPLY TAG", "principals": ["hcsc_admins"]}
+      ,{"grant": "READ VOLUME", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "WRITE VOLUME", "principals": ["hcsc_data_engineers"]}
+    ]
+    ,"comment": "Extract directory for outgoing Care Managment Mart Files"
+    ,"external_location": ""
+  }
+  ,"care_management_tst_landing": {
+    "name": "landing"
+    ,"target": "tst"
+    ,"catalog": "hcsc_tst"
+    ,"schema": "care_management"
+    ,"permissions": [
+      {"grant": "APPLY TAG", "principals": ["hcsc_admins"]}
+      ,{"grant": "READ VOLUME", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "WRITE VOLUME", "principals": ["hcsc_data_engineers"]}
+    ]
+    ,"comment": "Landing directory for incoming Care Managment Mart Files"
+    ,"external_location": ""
+  }
+  ,"care_management_tst_extract": {
+    "name": "extract"
+    ,"target": "tst"
+    ,"catalog": "hcsc_dev"
+    ,"schema": "care_management"
+    ,"permissions": [
+      {"grant": "APPLY TAG", "principals": ["hcsc_admins"]}
+      ,{"grant": "READ VOLUME", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "WRITE VOLUME", "principals": ["hcsc_data_engineers"]}
+    ]
+    ,"comment": "Extract directory for outgoing Care Managment Mart Files"
+    ,"external_location": ""
+  }
+  ,"finance_dev_landing": {
+    "name": "landing"
+    ,"target": "dev"
+    ,"catalog": "hcsc_dev"
+    ,"schema": "finance"
+    ,"permissions": [
+      {"grant": "APPLY TAG", "principals": ["hcsc_admins"]}
+      ,{"grant": "READ VOLUME", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "WRITE VOLUME", "principals": ["hcsc_data_engineers"]}
+    ]
+    ,"comment": "Landing directory for incoming Finance Mart Files"
+    ,"external_location": ""
+  }
+  ,"finance_dev_extract": {
+    "name": "extract"
+    ,"target": "dev"
+    ,"catalog": "hcsc_dev"
+    ,"schema": "finance"
+    ,"permissions": [
+      {"grant": "APPLY TAG", "principals": ["hcsc_admins"]}
+      ,{"grant": "READ VOLUME", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "WRITE VOLUME", "principals": ["hcsc_data_engineers"]}
+    ]
+    ,"comment": "Extract directory for outgoing Finance Mart Files"
+    ,"external_location": ""
+  }
+  ,"finance_tst_landing": {
+    "name": "landing"
+    ,"target": "tst"
+    ,"catalog": "hcsc_tst"
+    ,"schema": "finance"
+    ,"permissions": [
+      {"grant": "APPLY TAG", "principals": ["hcsc_admins"]}
+      ,{"grant": "READ VOLUME", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "WRITE VOLUME", "principals": ["hcsc_data_engineers"]}
+    ]
+    ,"comment": "Landing directory for incoming Finance Mart Files"
+    ,"external_location": ""
+  }
+  ,"finance_tst_extract": {
+    "name": "extract"
+    ,"target": "tst"
+    ,"catalog": "hcsc_dev"
+    ,"schema": "finance"
+    ,"permissions": [
+      {"grant": "APPLY TAG", "principals": ["hcsc_admins"]}
+      ,{"grant": "READ VOLUME", "principals": ["hcsc_data_engineers", "hcsc_data_scientists"]}
+      ,{"grant": "WRITE VOLUME", "principals": ["hcsc_data_engineers"]}
+    ]
+    ,"comment": "Extract directory for outgoing Finance Mart Files"
+    ,"external_location": ""
+  }
+}}

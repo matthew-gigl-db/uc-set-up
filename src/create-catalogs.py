@@ -82,8 +82,22 @@ for i in catalogs_list:
 
 # COMMAND ----------
 
-# DBTITLE 1,Display Grants for Distinct Catalogs
+from pyspark.sql.types import StringType, StructType, StructField
+
+# Define the schema for the empty DataFrame
+schema = StructType([
+    StructField("Principal", StringType(), nullable=True),
+    StructField("ActionType", StringType(), nullable=True),
+    StructField("ObjectType", StringType(), nullable=True),
+    StructField("ObjectKey", StringType(), nullable=True),
+])
+
+# Create an empty DataFrame with the desired schema
+appended_df = spark.createDataFrame([], schema)  
+
 for catalog in distinct_catalogs:
-  display(
-    spark.sql(f"SHOW GRANTS ON CATALOG {catalog};")
-  )
+  grants = spark.sql(f"SHOW GRANTS ON CATALOG {catalog};")
+  # Append the grants DataFrame to the empty DataFrame
+  appended_df = appended_df.union(grants)  
+
+display(appended_df)
