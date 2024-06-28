@@ -36,6 +36,7 @@ resources:
             notebook_path: ../src/sync-schemas.py 
           depends_on:
             - task_key: create_schemas
+
         
       job_clusters:
         - job_cluster_key: job_cluster
@@ -55,7 +56,7 @@ resources:
         - name: bundle.target
           default: ${bundle.target}
         - name: bundle.sync_dry_run
-          default: "true"
+          default: "false"
 
 
 
