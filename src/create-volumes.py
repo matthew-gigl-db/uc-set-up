@@ -92,7 +92,7 @@ for i in volumes_list:
   for principal in i['permissions']['principals']:
     sql_str = f"GRANT {grant} ON VOLUME {catalog}.{schema}.{volume} TO `{principal}`;"
     print(sql_str)
-    # spark.sql(sql_str)
+    spark.sql(sql_str)
 
 # COMMAND ----------
 
