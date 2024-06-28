@@ -41,7 +41,7 @@
   ,"care_management_tst_extract": {
     "name": "extract"
     ,"target": "tst"
-    ,"catalog": "hcsc_dev"
+    ,"catalog": "hcsc_tst"
     ,"schema": "care_management"
     ,"permissions": [
       {"grant": "APPLY TAG", "principals": ["hcsc_admins"]}
@@ -93,7 +93,7 @@
   ,"finance_tst_extract": {
     "name": "extract"
     ,"target": "tst"
-    ,"catalog": "hcsc_dev"
+    ,"catalog": "hcsc_tst"
     ,"schema": "finance"
     ,"permissions": [
       {"grant": "APPLY TAG", "principals": ["hcsc_admins"]}
