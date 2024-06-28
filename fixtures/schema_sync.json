@@ -2,7 +2,7 @@
   "care_management_dev": {
     "target": "dev"
     ,"source_catalog": "hive_metastore"
-    ,"source_schema": "hls_price_transparency"
+    ,"source_schema": "field_demos_hls_omop"
     ,"target_catalog": "hcsc_dev"
     ,"target_schema": "care_management"
     ,"external": false
@@ -11,7 +11,7 @@
   ,"care_management_tst": {
     "target": "tst"
     ,"source_catalog": "hive_metastore"
-    ,"source_schema": "hls_price_transparency"
+    ,"source_schema": "field_demos_hls_omop"
     ,"target_catalog": "hcsc_tst"
     ,"target_schema": "care_management"
     ,"external": false
@@ -20,19 +20,19 @@
   ,"finance_dev": {
     "target": "dev"
     ,"source_catalog": "hive_metastore"
-    ,"source_schema": "demos_dlt_loans_matthew_giglia"
+    ,"source_schema": "field_demos_hls_omop"
     ,"target_catalog": "hcsc_dev"
     ,"target_schema": "finance"
-    ,"external": true
+    ,"external": false
     ,"owner": "matthew.giglia@databricks.com"
   }
   ,"finance_tst": {
     "target": "tst"
     ,"source_catalog": "hive_metastore"
-    ,"source_schema": "demos_dlt_loans_matthew_giglia"
+    ,"source_schema": "field_demos_hls_omop"
     ,"target_catalog": "hcsc_tst"
     ,"target_schema": "finance"
-    ,"external": true
+    ,"external": false
     ,"owner": "matthew.giglia@databricks.com"
   }
 }}

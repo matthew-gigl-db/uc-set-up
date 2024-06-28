@@ -69,6 +69,21 @@ schema_sync_list = schema_sync_sdf.distinct().collect()
 
 # COMMAND ----------
 
+from pyspark.sql.types import StringType, StructType, StructField
+
+# Define the schema for the empty DataFrame
+schema = StructType([
+    StructField("Principal", StringType(), nullable=True),
+    StructField("ActionType", StringType(), nullable=True),
+    StructField("ObjectType", StringType(), nullable=True),
+    StructField("ObjectKey", StringType(), nullable=True),
+])
+
+# COMMAND ----------
+
+# Create an empty DataFrame with the desired schema
+appended_df = spark.createDataFrame([], schema)  
+
 for i in schema_sync_list:
   source_catalog = i['source_catalog']
   source_schema = i['source_schema']
@@ -84,6 +99,12 @@ for i in schema_sync_list:
     sql_str += f" SET OWNER `{owner}`"
   if sync_dry_run:
     sql_str += " DRY RUN"
+  sql_str += ";"
   print(sql_str)
-  spark.sql(sql_str)
+  results = spark.sql(sql_str)
+  appended_df = appended_df.union(results)  
 
+
+# COMMAND ----------
+
+display(results)
