@@ -33,7 +33,7 @@ resources:
         - task_key: sync_schemas
           # job_cluster_key: job_cluster #comment out for serverless
           notebook_task:
-            notebook_path: ../src/sync_schemas.py
+            notebook_path: ../src/sync-schemas.py 
           depends_on:
             - task_key: create_schemas
         
