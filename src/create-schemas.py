@@ -101,23 +101,6 @@ from pyspark.sql.types import StringType, StructType, StructField
 
 # Define the schema for the empty DataFrame
 schema = StructType([
-    StructField("Column1", StringType(), nullable=True),
-    StructField("Column2", StringType(), nullable=True),
-    StructField("Column3", StringType(), nullable=True)
-])
-
-# Create an empty DataFrame with the desired schema
-empty_df = spark.createDataFrame([], schema)
-
-# Use the empty_df DataFrame as needed
-display(empty_df)
-
-# COMMAND ----------
-
-from pyspark.sql.types import StringType, StructType, StructField
-
-# Define the schema for the empty DataFrame
-schema = StructType([
     StructField("Principal", StringType(), nullable=True),
     StructField("ActionType", StringType(), nullable=True),
     StructField("ObjectType", StringType(), nullable=True),
