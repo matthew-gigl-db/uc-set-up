@@ -81,7 +81,7 @@ for i in schema_sync_list:
     sql_str = sql_str + "AS EXTERNAL "
   sql_str += f"FROM {source_catalog}.{source_schema}"
   if owner != "":
-    sql_str += f" SET OWNER {owner}"
+    sql_str += f" SET OWNER `{owner}`"
   if sync_dry_run:
     sql_str += " DRY RUN"
   print(sql_str)
