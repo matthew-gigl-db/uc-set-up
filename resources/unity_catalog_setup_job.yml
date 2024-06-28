@@ -24,6 +24,12 @@ resources:
             notebook_path: ../src/create-schemas.py
           depends_on:
             - task_key: create_catalogs
+        - task_key: create_volumes
+          # job_cluster_key: job_cluster #comment out for serverless
+          notebook_task:
+            notebook_path: ../src/create-volumes.py
+          depends_on:
+            - task_key: create_schemas
         
       job_clusters:
         - job_cluster_key: job_cluster
