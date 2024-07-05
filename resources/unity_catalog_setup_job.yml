@@ -30,6 +30,13 @@ resources:
             notebook_path: ../src/create-volumes.py
           depends_on:
             - task_key: create_schemas
+        - task_key: sync_schemas
+          # job_cluster_key: job_cluster #comment out for serverless
+          notebook_task:
+            notebook_path: ../src/sync-schemas.py 
+          depends_on:
+            - task_key: create_schemas
+
         
       job_clusters:
         - job_cluster_key: job_cluster
@@ -48,6 +55,8 @@ resources:
           default: /Workspace${workspace.file_path}
         - name: bundle.target
           default: ${bundle.target}
+        - name: bundle.sync_dry_run
+          default: "false"
 
 
 

@@ -1,0 +1,40 @@
+{"schema_sync": {
+  "care_management_dev": {
+    "target": "dev"
+    ,"source_catalog": "hive_metastore"
+    ,"source_schema": "hls_interop_jon_vanhofwegen"
+    ,"target_catalog": "hcsc_dev"
+    ,"target_schema": "care_management"
+    ,"external": false
+    ,"owner": "matthew.giglia@databricks.com"
+  }
+  ,"care_management_tst": {
+    "target": "tst"
+    ,"source_catalog": "hive_metastore"
+    ,"source_schema": "hls_interop_jon_vanhofwegen"
+    ,"target_catalog": "hcsc_tst"
+    ,"target_schema": "care_management"
+    ,"external": false
+    ,"owner": "matthew.giglia@databricks.com"
+  }
+  ,"finance_dev": {
+    "target": "dev"
+    ,"source_catalog": "hive_metastore"
+    ,"source_schema": "hls_interop_jon_vanhofwegen"
+    ,"target_catalog": "hcsc_dev"
+    ,"target_schema": "finance"
+    ,"external": false
+    ,"owner": "matthew.giglia@databricks.com"
+  }
+  ,"finance_tst": {
+    "target": "tst"
+    ,"source_catalog": "hive_metastore"
+    ,"source_schema": "hls_interop_jon_vanhofwegen"
+    ,"target_catalog": "hcsc_tst"
+    ,"target_schema": "finance"
+    ,"external": false
+    ,"owner": "matthew.giglia@databricks.com"
+  }
+}}
+
+
