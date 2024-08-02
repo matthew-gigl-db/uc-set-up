@@ -37,7 +37,31 @@ db_pat
 
 # COMMAND ----------
 
+import json
 
+# Create a JSON string
+dab_init_config = {
+    "project_name": "my_first_dab",
+    "include_notebook": "yes",
+    "include_dlt": "yes",
+    "include_python": "yes"
+}
+dab_init_config = json.dumps(dab_init_config)
+
+# Print dab_init_config as formatted JSON
+print(json.dumps(json.loads(dab_init_config), indent=4))
+
+# COMMAND ----------
+
+import dabAssist
+import subprocess
+from tempfile import TemporaryDirectory
+
+# COMMAND ----------
+
+# Write the JSON string to a file
+with open("/dbfs/tmp/my_data.json", "w") as file:
+    file.write(json_str)
 
 # COMMAND ----------
 
