@@ -62,6 +62,11 @@ class assetBundle:
 
     def __repr__(self):
         return f"""assetBundle(directory='{self.directory}', repo_url='{self.repo_url}', project='{self.project}', target='{self.target}', bundle_path='{self.bundle_path}', cli_path='{self.cli_path}')"""
+      
+    def initialize(self, template: str = "default-python"):
+      cmd = f"cd {self.directory}; pwd; {self.project} | {self.cli_path} bundle init {template}"
+      result = subprocess.run(cmd, shell=True, capture_output=True)
+      return result.stdout.decode("utf-8") + "\n" + result.stderr.decode("utf-8")
 
     def clone(self):
       cmd = f"cd {self.directory}; pwd; git clone {self.repo_url}; cd {self.project}; ls -alt;"
