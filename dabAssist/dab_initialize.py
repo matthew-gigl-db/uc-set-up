@@ -59,9 +59,7 @@ from tempfile import TemporaryDirectory
 
 # COMMAND ----------
 
-# Write the JSON string to a file
-with open("/dbfs/tmp/my_data.json", "w") as file:
-    file.write(json_str)
+
 
 # COMMAND ----------
 
