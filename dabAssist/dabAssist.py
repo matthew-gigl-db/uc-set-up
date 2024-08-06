@@ -63,8 +63,8 @@ class assetBundle:
     def __repr__(self):
         return f"""assetBundle(directory='{self.directory}', repo_url='{self.repo_url}', project='{self.project}', target='{self.target}', bundle_path='{self.bundle_path}', cli_path='{self.cli_path}')"""
       
-    def initialize(self, template: str = "default-python"):
-      cmd = f"cd {self.directory}; pwd; {self.project} | {self.cli_path} bundle init {template}"
+    def initialize(self, template: str = "default-python", config_file: str = "dab_init_config.json"):
+      cmd = f"cd {self.directory}; pwd; {self.cli_path} bundle init {template} --config-file {self.directory}/{config_file}"
       result = subprocess.run(cmd, shell=True, capture_output=True)
       return result.stdout.decode("utf-8") + "\n" + result.stderr.decode("utf-8")
 
