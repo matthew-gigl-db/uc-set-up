@@ -62,6 +62,27 @@ class assetBundle:
 
     def __repr__(self):
         return f"""assetBundle(directory='{self.directory}', repo_url='{self.repo_url}', project='{self.project}', target='{self.target}', bundle_path='{self.bundle_path}', cli_path='{self.cli_path}')"""
+      
+    def initialize(self, template: str = "default-python", config_file: str = "dab_init_config.json"):
+      cmd = f"cd {self.directory}; pwd; {self.cli_path} bundle init {template} --config-file {self.directory}/{config_file}"
+      result = subprocess.run(cmd, shell=True, capture_output=True)
+      return result.stdout.decode("utf-8") + "\n" + result.stderr.decode("utf-8")
+    
+    def gh_install(self):
+      cmd = f"curl -sS https://webi.sh/gh | sh;"
+      result = subprocess.run(cmd, shell=True, capture_output=True)
+      return result.stdout.decode("utf-8") + "\n" + result.stderr.decode("utf-8")
+    
+    def gh_auth(self, github_token: str, gh_path: str = "~/.local/bin/gh"):
+      cmd = f"{gh_path} auth login --with-token < {self.directory}/gh.txt;"
+      result = subprocess.run(cmd, shell=True, capture_output=True)
+      return result.stdout.decode("utf-8") + "\n" + result.stderr.decode("utf-8")
+    
+    #  git add .; git commit -m 'initial commit';
+    def gh_repo(self, user_email: str, user_name: str, gh_path: str = "~/.local/bin/gh"):
+      cmd = f"cd {self.directory}/{self.project}; pwd; git init; git config user.email '{user_email}'; git config user.name '{user_name}'; git add *; git commit -m 'initial commit'; git branch -M main; {gh_path} repo create {self.project} --private --source={self.directory}/{self.project} --remote=upstream --push;"
+      result = subprocess.run(cmd, shell=True, capture_output=True)
+      return result.stdout.decode("utf-8") + "\n" + result.stderr.decode("utf-8")
 
     def clone(self):
       cmd = f"cd {self.directory}; pwd; git clone {self.repo_url}; cd {self.project}; ls -alt;"
