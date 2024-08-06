@@ -67,6 +67,11 @@ class assetBundle:
       cmd = f"cd {self.directory}; pwd; {self.cli_path} bundle init {template} --config-file {self.directory}/{config_file}"
       result = subprocess.run(cmd, shell=True, capture_output=True)
       return result.stdout.decode("utf-8") + "\n" + result.stderr.decode("utf-8")
+    
+    def commit_to_remote(self):
+      cmd = f"cd {self.directory}/{project}; pwd; git init; git add .; git commit -m 'initial commit'; git branch -M main; git remote add origin {self.repo_url}; git push -u origin main;"
+      result = subprocess.run(cmd, shell=True, capture_output=True)
+      return result.stdout.decode("utf-8") + "\n" + result.stderr.decode("utf-8")
 
     def clone(self):
       cmd = f"cd {self.directory}; pwd; git clone {self.repo_url}; cd {self.project}; ls -alt;"
