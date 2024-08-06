@@ -6,7 +6,8 @@ dbutils.widgets.text(name = "project", defaultValue="")
 dbutils.widgets.text(name = "workspace_url", defaultValue="")
 
 # Add a widget for the Databricks Secret representing the Databricks Personal Access Token  
-dbutils.widgets.text("pat_secret", "databricks_pat", "DB Secret for PAT")
+dbutils.widgets.text("pat_secret", "databricks_pat", "DB Secret for Databricks PAT")
+dbutils.widgets.text("gh_pat_secret", "gh_pat", "DB Secret for Github PAT")
 
 # COMMAND ----------
 
@@ -38,6 +39,15 @@ db_pat = dbutils.secrets.get(
 )
 
 db_pat
+
+# COMMAND ----------
+
+gh_pat = dbutils.secrets.get(
+  scope = secret_scope
+  ,key = dbutils.widgets.get("gh_pat_secret")
+)
+
+gh_pat
 
 # COMMAND ----------
 
@@ -137,6 +147,11 @@ print(result.stdout.decode("utf-8"))
 print(
   bundle.commit_to_remote()
 )
+
+# COMMAND ----------
+
+cmd = f"gh auth -w"
+result = subprocess.run(cmd, shell=True, capture_output=True)
 
 # COMMAND ----------
 

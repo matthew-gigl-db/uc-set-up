@@ -68,6 +68,11 @@ class assetBundle:
       result = subprocess.run(cmd, shell=True, capture_output=True)
       return result.stdout.decode("utf-8") + "\n" + result.stderr.decode("utf-8")
     
+    def gh_auth(self, github_token: str):
+      cmd = f"cd gh auth --with-token {github_token}"
+      result = subprocess.run(cmd, shell=True, capture_output=True)
+      return result.stdout.decode("utf-8") + "\n" + result.stderr.decode("utf-8")
+    
     def commit_to_remote(self):
       cmd = f"cd {self.directory}/{self.project}; pwd; git init; git add .; git commit -m 'initial commit'; git branch -M main; git remote add origin {self.repo_url}; git push -u origin main;"
       result = subprocess.run(cmd, shell=True, capture_output=True)
