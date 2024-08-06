@@ -134,7 +134,9 @@ print(result.stdout.decode("utf-8"))
 
 # COMMAND ----------
 
-
+print(
+  bundle.commit_to_remote()
+)
 
 # COMMAND ----------
 
