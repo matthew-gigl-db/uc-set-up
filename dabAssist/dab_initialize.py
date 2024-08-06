@@ -118,10 +118,23 @@ bundle = dabAssist.assetBundle(
 
 # COMMAND ----------
 
+# DBTITLE 1,Initialize a Databricks Asset Bundle Project with a template and config file
 bundle.initialize(
   template = "default-python"
   ,config_file = "dab_init_config.json"
 )
+
+# COMMAND ----------
+
+# DBTITLE 1,Verify the Asset Bundle's Creation
+cmd = f"ls -altR {temp_directory}"
+
+result = subprocess.run(cmd, shell=True, capture_output=True)
+print(result.stdout.decode("utf-8"))
+
+# COMMAND ----------
+
+
 
 # COMMAND ----------
 
