@@ -105,3 +105,7 @@ display(appended_df)
 # COMMAND ----------
 
 1+10
+
+# COMMAND ----------
+
+20+20
