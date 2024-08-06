@@ -104,8 +104,4 @@ display(appended_df)
 
 # COMMAND ----------
 
-1+1
-
-# COMMAND ----------
-
-1+2
+1+10
