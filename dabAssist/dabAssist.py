@@ -68,13 +68,19 @@ class assetBundle:
       result = subprocess.run(cmd, shell=True, capture_output=True)
       return result.stdout.decode("utf-8") + "\n" + result.stderr.decode("utf-8")
     
-    def gh_auth(self, github_token: str):
-      cmd = f"cd gh auth --with-token {github_token}"
+    def gh_install(self):
+      cmd = f"curl -sS https://webi.sh/gh | sh;"
       result = subprocess.run(cmd, shell=True, capture_output=True)
       return result.stdout.decode("utf-8") + "\n" + result.stderr.decode("utf-8")
     
-    def commit_to_remote(self):
-      cmd = f"cd {self.directory}/{self.project}; pwd; git init; git add .; git commit -m 'initial commit'; git branch -M main; git remote add origin {self.repo_url}; git push -u origin main;"
+    def gh_auth(self, github_token: str, gh_path: str = "~/.local/bin/gh"):
+      cmd = f"{gh_path} auth login --with-token < {self.directory}/gh.txt;"
+      result = subprocess.run(cmd, shell=True, capture_output=True)
+      return result.stdout.decode("utf-8") + "\n" + result.stderr.decode("utf-8")
+    
+    #  git add .; git commit -m 'initial commit';
+    def gh_repo(self, user_email: str, user_name: str, gh_path: str = "~/.local/bin/gh"):
+      cmd = f"cd {self.directory}/{self.project}; pwd; git init; git config user.email '{user_email}'; git config user.name '{user_name}'; git add *; git commit -m 'initial commit'; git branch -M main; {gh_path} repo create {self.project} --private --source={self.directory}/{self.project} --remote=upstream --push;"
       result = subprocess.run(cmd, shell=True, capture_output=True)
       return result.stdout.decode("utf-8") + "\n" + result.stderr.decode("utf-8")
 

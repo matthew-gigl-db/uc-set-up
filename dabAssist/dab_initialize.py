@@ -117,6 +117,11 @@ dc.configure().returncode
 
 # COMMAND ----------
 
+from importlib import reload
+reload(dabAssist)
+
+# COMMAND ----------
+
 # DBTITLE 1,Create a Databricks Asset Bundle object
 bundle = dabAssist.assetBundle(
   directory = temp_directory
@@ -144,14 +149,33 @@ print(result.stdout.decode("utf-8"))
 
 # COMMAND ----------
 
+# DBTITLE 1,Install the GitHub CLI
 print(
-  bundle.commit_to_remote()
+  bundle.gh_install()
 )
 
 # COMMAND ----------
 
-cmd = f"gh auth -w"
-result = subprocess.run(cmd, shell=True, capture_output=True)
+# DBTITLE 1,Write GH PAT to Temp File
+with open(f"{temp_directory}/gh.txt", "w") as file:
+    file.write(gh_pat)
+
+# COMMAND ----------
+
+# DBTITLE 1,Authenticate GitHub CLI
+bundle.gh_auth(
+  github_token = gh_pat
+)
+
+# COMMAND ----------
+
+# DBTITLE 1,Create Remote Repo and Push DAB Contents
+print(
+  bundle.gh_repo(
+    user_email = "matthew.giglia@databricks.com"
+    ,user_name = "M Giglia"
+  )
+)
 
 # COMMAND ----------
 
